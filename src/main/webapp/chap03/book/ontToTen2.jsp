@@ -6,19 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-/* CSS주석  */
-</style>
 <body>
-<!-- HTML주석 -->
-
-<%-- jsp주석 --%>
-
-<script>
-// js 한줄 주석
-/* 여러줄 주석 */
-</script>
-
-
+1부터 10까지의 합은
+<%= 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 %>
 </body>
 </html>
