@@ -4,7 +4,8 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-Map<String, String> map = Map.of("song2","1","song1","2");
+Map<String, String> map = Map.of("song2","1",
+								 "song1","2");
 session.setAttribute("songs", map);
 
 response.sendRedirect("11to.jsp");
