@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%-- null이 출력되지 않도록
+	03from.jsp 요청을 보내고
+	03from.jsp 에서 03to.jsp로 포워드하는 코드 작성
+	 --%>
+
 	주소 : <%= request.getParameter("address") %><br>
 	이메일 : <%= request.getParameter("email") %>
 </body>

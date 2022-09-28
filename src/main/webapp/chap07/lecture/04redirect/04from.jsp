@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<jsp:forward page="02to.jsp"></jsp:forward>
+<% request.setCharacterEncoding("utf-8"); %>
+<%
+	response.sendRedirect("04to.jsp");
+%>
