@@ -14,9 +14,9 @@
 	request.setAttribute("langs", l);
 	%>
 	
-<!-- 	List<String> list = (List<String>) request.getAttribute("langs");  -->
 	<%
-	for (int i = 0; i < l.size(); i++) {
+	List<String> list = (List<String>) request.getAttribute("langs");
+	for (int i = 0; i < list.size(); i++) {
 		pageContext.setAttribute("idx", i);
 	%>
 		<p>${langs[idx] }</p>
