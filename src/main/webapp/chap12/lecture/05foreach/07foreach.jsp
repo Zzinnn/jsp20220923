@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -8,16 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>산술연산자의 피연산자를 수로 변환하려고 한다.</h3>
+	<c:set var="s" value="3" />
+	<c:set var="e" value="7" />
+
+	<c:forEach begin="${s }" end="${e }" var="i">
+		<p>${i }</p>
+	</c:forEach>
 	
-	<p>${3 + 5 }</p>
-	<p>${"3" + 5 }</p>
-	<p>${"3" + "5" }</p>
-	<%-- <p>${"three" + 5 }</p> --%>
 	
-	<%-- <!-- <p>${"three" + 5 }</p>  --> --%>
 </body>
 </html>
+
 
 
 
