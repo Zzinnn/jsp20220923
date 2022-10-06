@@ -11,7 +11,13 @@ public class Book {
 		this.price = price;
 	}
 	
-	
+//	
+//	@Override
+//	public String toString() {
+//		return "Book [title=" + title + ", price=" + price + "]";
+//	}
+
+
 	public String getTitle() {
 		return title;
 	}

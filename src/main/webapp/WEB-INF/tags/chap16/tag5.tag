@@ -1,3 +1,8 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
-
-<div>다섯번째 태그~!~!~!~!</div>
+<%@ attribute name="att" %>
+<%@ attribute name="btt" %>
+<%-- 여러개의 attr사용가능 --%>
+<%-- attribute 디렉티브
+이 태그에서 사용할 attribute 정의
+ --%>
+<div>다섯번째 태그~!~!~!~!<br>${att }</div>
