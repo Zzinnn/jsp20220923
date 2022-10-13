@@ -1,0 +1,9 @@
+-- BETWEEN :  범위 내의 조건
+SELECT * FROM Orders;
+SELECT * FROM Orders WHERE OrderDate;
+
+SELECT * FROM Products WHERE Price BETWEEN 10.00 AND 20.00;
+
+SELECT * FROM Orders WHERE OrderDate BETWEEN '1998-01-01' AND '1998-01-31';
+
+SELECT * FROM Employees
