@@ -3,7 +3,7 @@ package servlet.chap14;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servlet26
+ * Servlet implementation class Servlet31
  */
-@WebServlet("/Servlet26")
-public class Servlet26 extends HttpServlet {
+@WebServlet("/Servlet31")
+public class Servlet31 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet26() {
+    public Servlet31() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,11 +31,21 @@ public class Servlet26 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// req param
+		String idParam = request.getParameter("id");
+		int id = Integer.parseInt(idParam);
 		
-		// business logic
-		String sql = "INSERT INTO Customers "
-				+ "(CustomerName, ContactName, Address, City, PostalCode, Country) "
-				+ "VALUES ('Tony Stark', 'Ironman', 'Gangnam', 'Seoul', '22222', 'Korea') ";
+		// logic
+		String sql = "DELETE FROM Employees WHERE EmployeeID = ? ";
+		
 		ServletContext application = request.getServletContext();
 
 		String url = application.getAttribute("jdbc.url").toString();
@@ -44,29 +54,28 @@ public class Servlet26 extends HttpServlet {
 
 		try (
 				Connection con = DriverManager.getConnection(url, user, pw);
-				Statement stmt = con.createStatement();) {
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
 			
-			int cnt = stmt.executeUpdate(sql);
-			System.out.println(cnt);
+			pstmt.setInt(1, id);
+			int cnt = pstmt.executeUpdate();
 			
-			// forward / redirect
 			if (cnt == 1) {
-				String path = request.getContextPath() + "/Servlet23";
-				response.sendRedirect(path);
+				request.getSession()
+				.setAttribute("message", id + "번 직원이 삭제되었습니다.");
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// f / r
+		
+	
 	}
 
 }
+
+
+
+
+
+

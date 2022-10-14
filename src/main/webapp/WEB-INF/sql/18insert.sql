@@ -1,27 +1,65 @@
 USE w3schools;
 
+SELECT * FROM Employees ORDER BY EmployeeID DESC;
 -- INSERT INTO : 테이블에 레코드 추가하는 명령문
-INSERT INTO Employees
+INSERT INTO Employees 
 (EmployeeID, LastName, FirstName, BirthDate, Photo, Notes)
 VALUES
-(10, 'Son' , 'HM', '1999-01-01', 'EmpID101.pic', 'soccer player');
+(10, 'Son', 'HM', '1999-01-01', 'EmpID10.pic', 'soccer player');
+
+-- 11번째 직원 추가 
+INSERT INTO Employees 
+(EmployeeID, LastName, FirstName, BirthDate, Photo, Notes)
+VALUES
+(11, 'Tony', 'Stark', '1980-01-01', 'EmpID11.pic', 'ironman');
+
+-- 12번째 직원 추가, notes 컬럼 빼고
+INSERT INTO Employees
+(EmployeeID, LastName, FirstName, BirthDate, Photo)
+VALUES
+(12, 'Black', 'Panther', '1970-01-01', 'EmpID12.pic');
+
+-- 13번째 직원 추가, birthDate, notes 컬럼 빼고
+INSERT INTO Employees
+(EmployeeID, LastName, FirstName, Photo)
+VALUES
+(13, 'Doctor', 'Strange', 'EmpID13.pic');
+
+-- 새 직원 추가 , EmployeeID컬럼 빼고
+INSERT INTO Employees
+(LastName, FirstName)
+VALUES
+('Natasha', 'Romanoff');
 
 INSERT INTO Employees
-(EmployeeID, LastName, FirstName, BirthDate, Photo , Notes)
+(LastName, FirstName, Notes)
 VALUES
-(11,'tony','stark','1980-01-01','Em','ee');
-
-SELECT * FROM Employees;
+('Kim', 'kildong', '');
 
 INSERT INTO Employees
-(EmployeeID,LastName,FirstName,Photo)
+(LastName, FirstName, Notes)
 VALUES
-(13,'doctor','strange','.jsp');
+('Kim', 'kildong2', ' ');
 
+-- NULL은 값이 없음
 
--- DESCRIBE 테이블 구조 조회
+-- Customers 테이블에 레코드 추가
+SELECT * FROM Customers ORDER BY 1 DESC;
+
+INSERT INTO Customers
+(CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+(100, 'Steve', 'Captain', 'brooklyn', 'NewYork', '33333', 'USA');
+
+INSERT INTO Customers
+(CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+('Stephen', 'Strange', 'brooklyn', 'NewYork', '33333', 'USA');
+
+-- DESCRIBE : 테이블 구조 조회, 제약사항(Constraints) 조회
+DESC Customers; 
 DESCRIBE Customers;
-DESC Customers;
+
 
 -- 제약사항 조회
 -- key pri 다른 레코드와 중복된 값을 갖지 못함 (key 같은 행에 같은 값을 가질 수 있음)
